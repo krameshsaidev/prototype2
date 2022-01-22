@@ -1,0 +1,396 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="img/hospital.png" type="image/x-icon">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/mdb.min.css" rel="stylesheet" />
+    <link href="css/style.min.css" rel="stylesheet" />
+    <link href="css/dashboard.css" rel="stylesheet" />
+    <link href="css/datatables.min.css" rel="stylesheet" />
+    <title>Manage Patients</title>
+    <style>
+        div.dataTables_wrapper div.dataTables_length label {
+            width: 25%;
+        }
+
+        div.dataTables_wrapper div.dataTables_length select {
+        width:30%;
+        }
+        #dtBasicExample_length, #dtBasicExample_info {
+            text-align: left;
+        }
+        .row {
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+    </style>
+</head>
+<body class="fixed-sn light-blue-skin">
+    <header>
+        <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse">
+            <div class="position-sticky">
+                <!--<div class="list-group list-group-flush mx-3 mt-4" id="NavSection">
+        <a href="index.html" class="list-group-item list-group-item-action py-2 ripple active" aria-current="true">
+            <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Main dashboard</span>
+        </a>
+        <a href="Appointments.html" class="list-group-item list-group-item-action py-2 ripple ">
+            <i class="fas fa-calendar fa-fw me-3"></i><span>Appointments</span>
+        </a>
+        <a href="patients.html" class="list-group-item list-group-item-action py-2 ripple"><i class="fas fa-users fa-fw me-3"></i><span>Manage Patients</span></a>
+        <a href="doctors.html" class="list-group-item list-group-item-action py-2 ripple"><i class="fas fa-chart-line fa-fw me-3"></i><span>Manage Doctors</span></a>
+        <a href="billing.html" class="list-group-item list-group-item-action py-2 ripple">
+            <i class="fas fa-money-bill fa-fw me-3"></i><span>Billing</span>
+        </a>
+        <a href="reports.html" class="list-group-item list-group-item-action py-2 ripple"><i class="fas fa-chart-bar fa-fw me-3"></i><span>Reports</span></a>
+        <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i class="fas fa-globe fa-fw me-3"></i><span>Locations</span></a>
+        <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i class="fas fa-building fa-fw me-3"></i><span>Partners</span></a>
+        <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i class="fas fa-calendar fa-fw me-3"></i><span>Calendar</span></a>
+        <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i class="fas fa-users fa-fw me-3"></i><span>Users</span></a>
+        <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i class="fas fa-money-bill fa-fw me-3"></i><span>Sales</span></a>
+    </div>-->
+                <ul class="list-group list-group-flush mx-3 mt-4" id="NavSection">
+                    <li>
+                        <a href="index.html" class="list-group-item list-group-item-action py-2 ripple ">
+                            <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Main dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Appointments.html" class="list-group-item list-group-item-action py-2 ripple ">
+                            <i class="fas fa-calendar fa-fw me-3"></i><span>Appointments</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="patients.html" class="list-group-item list-group-item-action py-2 ripple"><i class="fas fa-users fa-fw me-3"></i><span>Manage Patients</span></a>
+                    </li>
+                    <li>
+                        <a href="doctors.html" class="list-group-item list-group-item-action py-2 ripple"><i class="fas fa-chart-line fa-fw me-3"></i><span>Manage Doctors</span></a>
+                    </li>
+                    <li>
+                        <a href="billing.html" class="list-group-item list-group-item-action py-2 ripple">
+                            <i class="fas fa-money-bill fa-fw me-3"></i><span>Billing</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="reports.html" class="list-group-item list-group-item-action py-2 ripple"><i class="fas fa-chart-bar fa-fw me-3"></i><span>Reports</span></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <nav id="main-navbar" class="navbar navbar-expand-lg navbar-light fixed-top">
+            <div class="container-fluid">
+                <button style="color:white" class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <a class="navbar-brand bg-white" href="index.html">
+                    <img src="https://maieden.com/img/logo.png" height="50" alt="mdb logo" />
+                </a>
+
+                <form class="mx-2 my-auto d-inline w-100">
+                    <input type="text" class="form-control border border-right-0" placeholder="Search...">
+                </form>
+                <ul class="navbar-nav ms-auto d-flex flex-row">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link me-3 me-lg-0 dropdown-toggle hidden-arrow" href="#" id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-bell"></i>
+                            <span class="badge rounded-pill badge-notification bg-danger">3</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a class="dropdown-item" href="#">Notification 1</a></li>
+                            <li><a class="dropdown-item" href="#">Notification 2</a></li>
+                            <li><a class="dropdown-item" href="#">Notification 3</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link me-3 me-lg-0 dropdown-toggle hidden-arrow" href="#" id="navbarDropdown" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
+                            <i class="united kingdom flag m-0"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            <li>
+                                <a class="dropdown-item" href="#">
+                                    <i class="united kingdom flag"></i>English
+                                    <i class="fa fa-check text-success ms-2"></i>
+                                </a>
+                            </li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li>
+                                <a class="dropdown-item" href="#"><i class="poland flag"></i>Polski</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#"><i class="china flag"></i>中文</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#"><i class="japan flag"></i>日本語</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#"><i class="germany flag"></i>Deutsch</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#"><i class="france flag"></i>Français</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#"><i class="spain flag"></i>Español</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#"><i class="russia flag"></i>Русский</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#"><i class="portugal flag"></i>Português</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle hidden-arrow d-flex align-items-center" href="#" id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
+                            <img src="img/admin.png" class="rounded-circle" height="25" alt="" loading="lazy">
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a class="dropdown-item" href="#">My profile</a></li>
+                            <li><a class="dropdown-item" href="#">Settings</a></li>
+                            <li><a class="dropdown-item" href="#">Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main style="margin-top: 58px">
+        <div class="container pt-4">
+
+            <div class="container-fluid mt-4">
+                <div class="row">
+                    <div class="counter-box mb-4">
+                        <h3 class='mb-3'>Patients List</h3>
+                        <table id="dtBasicExample" class="table table-responsive-lg" width="100%">
+                            <thead>
+                                <tr>
+                                    <th class="th-sm">
+                                        Name
+                                    </th>
+                                    <th class="th-sm">
+                                        Position
+                                    </th>
+                                    <th class="th-sm">
+                                        Office
+                                    </th>
+                                    <th class="th-sm">
+                                        Age
+                                    </th>
+                                    <th class="th-sm">
+                                        Joined date
+                                    </th>
+                                    <th class="th-sm">
+                                        Bill
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Tiger Nixon</td>
+                                    <td>System Architect</td>
+                                    <td>Edinburgh</td>
+                                    <td>61</td>
+                                    <td>2011/04/25</td>
+                                    <td>$320,800</td>
+                                </tr>
+                                <tr>
+                                    <td>Garrett Winters</td>
+                                    <td>Accountant</td>
+                                    <td>Tokyo</td>
+                                    <td>63</td>
+                                    <td>2011/07/25</td>
+                                    <td>$170,750</td>
+                                </tr>
+                                <tr>
+                                    <td>Ashton Cox</td>
+                                    <td>Junior Technical Author</td>
+                                    <td>San Francisco</td>
+                                    <td>66</td>
+                                    <td>2009/01/12</td>
+                                    <td>$86,000</td>
+                                </tr>
+                                <tr>
+                                    <td>Cedric Kelly</td>
+                                    <td>Senior Javascript Developer</td>
+                                    <td>Edinburgh</td>
+                                    <td>22</td>
+                                    <td>2012/03/29</td>
+                                    <td>$433,060</td>
+                                </tr>
+                                <tr>
+                                    <td>Airi Satou</td>
+                                    <td>Accountant</td>
+                                    <td>Tokyo</td>
+                                    <td>33</td>
+                                    <td>2008/11/28</td>
+                                    <td>$162,700</td>
+                                </tr>
+                                <tr>
+                                    <td>Brielle Williamson</td>
+                                    <td>Integration Specialist</td>
+                                    <td>New York</td>
+                                    <td>61</td>
+                                    <td>2012/12/02</td>
+                                    <td>$372,000</td>
+                                </tr>
+                                <tr>
+                                    <td>Herrod Chandler</td>
+                                    <td>Sales Assistant</td>
+                                    <td>San Francisco</td>
+                                    <td>59</td>
+                                    <td>2012/08/06</td>
+                                    <td>$137,500</td>
+                                </tr>
+                                <tr>
+                                    <td>Rhona Davidson</td>
+                                    <td>Integration Specialist</td>
+                                    <td>Tokyo</td>
+                                    <td>55</td>
+                                    <td>2010/10/14</td>
+                                    <td>$327,900</td>
+                                </tr>
+                                <tr>
+                                    <td>Colleen Hurst</td>
+                                    <td>Javascript Developer</td>
+                                    <td>San Francisco</td>
+                                    <td>39</td>
+                                    <td>2009/09/15</td>
+                                    <td>$205,500</td>
+                                </tr>
+                                <tr>
+                                    <td>Sonya Frost</td>
+                                    <td>Software Engineer</td>
+                                    <td>Edinburgh</td>
+                                    <td>23</td>
+                                    <td>2008/12/13</td>
+                                    <td>$103,600</td>
+                                </tr>
+                                <tr>
+                                    <td>Jena Gaines</td>
+                                    <td>Office Manager</td>
+                                    <td>London</td>
+                                    <td>30</td>
+                                    <td>2008/12/19</td>
+                                    <td>$90,560</td>
+                                </tr>
+                                <tr>
+                                    <td>Quinn Flynn</td>
+                                    <td>Support Lead</td>
+                                    <td>Edinburgh</td>
+                                    <td>22</td>
+                                    <td>2013/03/03</td>
+                                    <td>$342,000</td>
+                                </tr>
+                                <tr>
+                                    <td>Charde Marshall</td>
+                                    <td>Regional Director</td>
+                                    <td>San Francisco</td>
+                                    <td>36</td>
+                                    <td>2008/10/16</td>
+                                    <td>$470,600</td>
+                                </tr>
+                                <tr>
+                                    <td>Haley Kennedy</td>
+                                    <td>Senior Marketing Designer</td>
+                                    <td>London</td>
+                                    <td>43</td>
+                                    <td>2012/12/18</td>
+                                    <td>$313,500</td>
+                                </tr>
+                                <tr>
+                                    <td>Tatyana Fitzpatrick</td>
+                                    <td>Regional Director</td>
+                                    <td>London</td>
+                                    <td>19</td>
+                                    <td>2010/03/17</td>
+                                    <td>$385,750</td>
+                                </tr>
+                                <tr>
+                                    <td>Michael Silva</td>
+                                    <td>Marketing Designer</td>
+                                    <td>London</td>
+                                    <td>66</td>
+                                    <td>2012/11/27</td>
+                                    <td>$198,500</td>
+                                </tr>
+                                <tr>
+                                    <td>Paul Byrd</td>
+                                    <td>Chief Financial Officer (CFO)</td>
+                                    <td>New York</td>
+                                    <td>64</td>
+                                    <td>2010/06/09</td>
+                                    <td>$725,000</td>
+                                </tr>
+                                <tr>
+                                    <td>Gloria Little</td>
+                                    <td>Systems Administrator</td>
+                                    <td>New York</td>
+                                    <td>59</td>
+                                    <td>2009/04/10</td>
+                                    <td>$237,500</td>
+                                </tr>
+                                <tr>
+                                    <td>Bradley Greer</td>
+                                    <td>Software Engineer</td>
+                                    <td>London</td>
+                                    <td>41</td>
+                                    <td>2012/10/13</td>
+                                    <td>$132,000</td>
+                                </tr>
+                                <tr>
+                                    <td>Dai Rios</td>
+                                    <td>Personnel Lead</td>
+                                    <td>Edinburgh</td>
+                                    <td>35</td>
+                                    <td>2012/09/26</td>
+                                    <td>$217,500</td>
+                                </tr>
+                                <tr>
+                                    <td>Jenette Caldwell</td>
+                                    <td>Development Lead</td>
+                                    <td>New York</td>
+                                    <td>30</td>
+                                    <td>2011/09/03</td>
+                                    <td>$345,000</td>
+                                </tr>
+                                <tr>
+                                    <td>Yuri Berry</td>
+                                    <td>Chief Marketing Officer (CMO)</td>
+                                    <td>New York</td>
+                                    <td>40</td>
+                                    <td>2009/06/25</td>
+                                    <td>$675,000</td>
+                                </tr>
+                                <tr>
+                                    <td>Caesar Vance</td>
+                                    <td>Pre-Sales Support</td>
+                                    <td>New York</td>
+                                    <td>21</td>
+                                    <td>2011/12/12</td>
+                                    <td>$106,450</td>
+                                </tr>
+                            </tbody>
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="js/popper.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/mdb.min.js"></script>
+    <script type="text/javascript" src="js/dashboard.js"></script>
+    <script type="text/javascript" src="js/datatables.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#dtBasicExample').DataTable();
+            $('.dataTables_length').addClass('bs-select');
+        });
+    </script>
+</body>
+</html>

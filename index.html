@@ -1,8 +1,468 @@
 <html>
 <head>
-
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="img/hospital.png" type="image/x-icon">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/mdb.min.css" rel="stylesheet" />
+    <link href="css/style.min.css" rel="stylesheet" />
+    <link href="css/dashboard.css" rel="stylesheet" />
+    <title>Dashboard</title>
+    
 </head>
-<body>
-Sai
+<body class="fixed-sn light-blue-skin">
+    <header>
+        <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse">
+            <div class="position-sticky">
+
+                <!--<div class="list-group list-group-flush mx-3 mt-4" id="NavSection">
+
+        <a href="index.html" class="list-group-item list-group-item-action py-2 ripple active" aria-current="true">
+            <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Main dashboard</span>
+        </a>
+        <a href="Appointments.html" class="list-group-item list-group-item-action py-2 ripple ">
+            <i class="fas fa-calendar fa-fw me-3"></i><span>Appointments</span>
+        </a>
+        <a href="patients.html" class="list-group-item list-group-item-action py-2 ripple"><i class="fas fa-users fa-fw me-3"></i><span>Manage Patients</span></a>
+        <a href="doctors.html" class="list-group-item list-group-item-action py-2 ripple"><i class="fas fa-chart-line fa-fw me-3"></i><span>Manage Doctors</span></a>
+        <a href="billing.html" class="list-group-item list-group-item-action py-2 ripple">
+            <i class="fas fa-money-bill fa-fw me-3"></i><span>Billing</span>
+        </a>
+        <a href="reports.html" class="list-group-item list-group-item-action py-2 ripple"><i class="fas fa-chart-bar fa-fw me-3"></i><span>Reports</span></a>
+        <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i class="fas fa-globe fa-fw me-3"></i><span>Locations</span></a>
+        <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i class="fas fa-building fa-fw me-3"></i><span>Partners</span></a>
+        <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i class="fas fa-calendar fa-fw me-3"></i><span>Calendar</span></a>
+        <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i class="fas fa-users fa-fw me-3"></i><span>Users</span></a>
+        <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i class="fas fa-money-bill fa-fw me-3"></i><span>Sales</span></a>
+    </div>-->
+                <ul class="list-group list-group-flush mx-3 mt-4" id="NavSection">
+                    <li>
+                        <a href="index.html" class="list-group-item list-group-item-action py-2 ripple ">
+                            <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Main dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Appointments.html" class="list-group-item list-group-item-action py-2 ripple ">
+                            <i class="fas fa-calendar fa-fw me-3"></i><span>Appointments</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="patients.html" class="list-group-item list-group-item-action py-2 ripple"><i class="fas fa-users fa-fw me-3"></i><span>Manage Patients</span></a>
+                    </li>
+                    <li>
+                        <a href="doctors.html" class="list-group-item list-group-item-action py-2 ripple"><i class="fas fa-chart-line fa-fw me-3"></i><span>Manage Doctors</span></a>
+                    </li>
+                    <li>
+                        <a href="billing.html" class="list-group-item list-group-item-action py-2 ripple">
+                            <i class="fas fa-money-bill fa-fw me-3"></i><span>Billing</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="reports.html" class="list-group-item list-group-item-action py-2 ripple"><i class="fas fa-chart-bar fa-fw me-3"></i><span>Reports</span></a>
+                    </li>
+                    <li>
+                        <a href="locations.html" class="list-group-item list-group-item-action py-2 ripple"><i class="fas fa-globe fa-fw me-3"></i><span>Locations</span></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <nav id="main-navbar" class="navbar navbar-expand-lg navbar-light fixed-top">
+            <div class="container-fluid">
+                <button style="color:white" class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <a class="navbar-brand bg-white" href="index.html">
+                    <img src="https://maieden.com/img/logo.png" height="50" alt="mdb logo" />
+                </a>
+                
+                <form class="mx-2 my-auto d-inline w-100">
+                    <input type="text" class="form-control border border-right-0" placeholder="Search...">
+                </form>
+                <ul class="navbar-nav ms-auto d-flex flex-row">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link me-3 me-lg-0 dropdown-toggle hidden-arrow" href="#" id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-bell"></i>
+                            <span class="badge rounded-pill badge-notification bg-danger">3</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a class="dropdown-item" href="#">Notification 1</a></li>
+                            <li><a class="dropdown-item" href="#">Notification 2</a></li>
+                            <li><a class="dropdown-item" href="#">Notification 3</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link me-3 me-lg-0 dropdown-toggle hidden-arrow" href="#" id="navbarDropdown" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
+                            <i class="united kingdom flag m-0"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            <li>
+                                <a class="dropdown-item" href="#">
+                                    <i class="united kingdom flag"></i>English
+                                    <i class="fa fa-check text-success ms-2"></i>
+                                </a>
+                            </li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li>
+                                <a class="dropdown-item" href="#"><i class="poland flag"></i>Polski</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#"><i class="china flag"></i>中文</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#"><i class="japan flag"></i>日本語</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#"><i class="germany flag"></i>Deutsch</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#"><i class="france flag"></i>Français</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#"><i class="spain flag"></i>Español</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#"><i class="russia flag"></i>Русский</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#"><i class="portugal flag"></i>Português</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle hidden-arrow d-flex align-items-center" href="#" id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
+                            <img src="img/admin.png" class="rounded-circle" height="25" alt="" loading="lazy">
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a class="dropdown-item" href="#">My profile</a></li>
+                            <li><a class="dropdown-item" href="#">Settings</a></li>
+                            <li><a class="dropdown-item" href="#">Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main style="margin-top: 58px">
+        <div class="container pt-4">
+            <div class="container">
+                <div class="row">
+                    <div class="four col-md-3">
+                        <div class="counter-box ">
+                            <img src="img/doctor.png" height="50" alt="Doctor" />
+                            <span class="counter">2147</span>
+                            <p>Doctors</p>
+                        </div>
+                    </div>
+                    <div class="four col-md-3">
+                        <div class="counter-box">
+                            <img src="img/nurse.png" height="50" alt="Nurse" />
+                            <span class="counter">3275</span>
+                            <p>Nurses</p>
+                        </div>
+                    </div>
+                    <div class="four col-md-3">
+                        <div class="counter-box">
+                            <img src="img/hospitalisation.png" height="50" alt="Patients" />
+                            <span class="counter">289</span>
+                            <p>Patients</p>
+                        </div>
+                    </div>
+                    <div class="four col-md-3">
+                        <div class="counter-box">
+                            <img src="img/pharmacist.png" height="50" alt="Pharmacist" />
+                            <span class="counter">1563</span>
+                            <p>Pharmacists</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container mt-4">
+                <div class="row">
+                    <div class="four col-md-6">
+                        <div class="counter-box ">
+                            <!--<i class="fa fa-thumbs-o-up"></i>-->
+                            Active Patients Count
+                            <canvas id="myChart" width="400" height="200"></canvas>
+                        </div>
+                    </div>
+                    <div class="four col-md-6">
+                        <div class="counter-box">
+                            <!--<i class="fa fa-group"></i>-->
+                            Discharge Patients Count
+                            <canvas id="myChart1" width="400" height="200"></canvas>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="container mt-3" id="patientslist">
+                <div class="row">
+                    <div class="four col-md-12">
+
+                        <div class="counter-box">
+                            Recent Patient Activity
+                            <table class="table table-responsive-lg caption-top">
+                                <caption>
+                                    <a href="#">Show all users</a>
+                                </caption>
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Status</th>
+                                        <th scope="col">Contact Number</th>
+                                        <th scope="col">Payment Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td>Patient1</td>
+                                        <td><span class="badge rounded-pill bg-danger">Waiting</span></td>
+                                        <td> 9988776655 </td>
+                                        <td> <span class="badge rounded-pill bg-primary">Advance Paid</span> </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td>Patient2</td>
+                                        <td><span class="badge rounded-pill bg-success">Discharged</span></td>
+                                        <td> 9988776655 </td>
+                                        <td> <span class="badge rounded-pill bg-success">Fully Paid</span> </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">3</th>
+                                        <td>Patient3</td>
+                                        <td><span class="badge rounded-pill bg-danger">Admitted</span></td>
+                                        <td> 9988776655 </td>
+                                        <td> <span class="badge rounded-pill bg-secondary">Partially Paid</span> </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="container mt-4" id="recentlyjoined">
+                <div class="counter-box">
+                    <h2>Recently Joined Staff</h2>
+                    <div class="row row-cols-1 row-cols-md-4">
+                        <div class="col mb-3">
+                            <div class="card">
+                                <div class="view overlay">
+                                    <img class="card-img-top" src="img/staff.png"
+                                         alt="Card image cap">
+                                </div>
+                                <div class="card-body">
+                                    <p class="card-text">
+                                        Staff 1
+                                    </p>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col mb-3">
+                            <div class="card">
+                                <div class="view overlay">
+                                    <img class="card-img-top" src="img/staff.png"
+                                         alt="Card image cap">
+                                </div>
+                                <div class="card-body">
+                                    <p class="card-text">
+                                        Staff 2
+                                    </p>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col mb-3">
+                            <div class="card">
+                                <div class="view overlay">
+                                    <img class="card-img-top" src="img/staff.png"
+                                         alt="Card image cap">
+                                </div>
+                                <div class="card-body">
+                                    <p class="card-text">
+                                        Staff 3
+                                    </p>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col mb-3">
+                            <div class="card">
+                                <div class="view overlay">
+                                    <img class="card-img-top" src="img/staff.png"
+                                         alt="Card image cap">
+                                </div>
+                                <div class="card-body">
+                                    <p class="card-text">
+                                        Staff 4
+                                    </p>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col mb-3">
+                            <div class="card">
+                                <div class="view overlay">
+                                    <img class="card-img-top" src="img/staff.png"
+                                         alt="Card image cap">
+                                </div>
+                                <div class="card-body">
+                                    <p class="card-text">
+                                        Staff 5
+                                    </p>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col mb-3">
+                            <div class="card">
+                                <div class="view overlay">
+                                    <img class="card-img-top" src="img/staff.png"
+                                         alt="Card image cap">
+                                </div>
+                                <div class="card-body">
+                                    <p class="card-text">
+                                        Staff 6
+                                    </p>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col mb-3">
+                            <div class="card">
+                                <div class="view overlay">
+                                    <img class="card-img-top" src="img/staff.png"
+                                         alt="Card image cap">
+                                </div>
+                                <div class="card-body">
+                                    <p class="card-text">
+                                        Staff 7
+                                    </p>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!--Main layout-->
+
+
+    
+
+    <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="js/popper.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/mdb.min.js"></script>
+    <script type="text/javascript" src="js/dashboard.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.js"></script>
+    <script>
+        const ctx = document.getElementById('myChart');
+        const myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+                datasets: [{
+                    label: '# of Count',
+                    data: [12, 19, 3, 5, 2, 3],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        const ctx1 = document.getElementById('myChart1');
+        const myChart1 = new Chart(ctx1, {
+            type: 'line',
+            data: {
+                labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+                datasets: [{
+                    label: '# of Count',
+                    data: [12, 19, 3, 5, 2, 3],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+    <script>
+        $('.carousel .carousel-item').each(function () {
+            var next = $(this).next();
+            if (!next.length) {
+                next = $(this).siblings(':first');
+            }
+            next.children(':first-child').clone().appendTo($(this));
+
+            for (var i = 0; i < 4; i++) {
+                next = next.next();
+                if (!next.length) {
+                    next = $(this).siblings(':first');
+                }
+                next.children(':first-child').clone().appendTo($(this));
+            }
+        });
+
+        $(function () {
+            $('.material-tooltip-main').tooltip({
+                template: '<div class="tooltip md-tooltip"><div class="tooltip-arrow md-arrow"></div><div class="tooltip-inner md-inner"></div></div>'
+            });
+        })
+    </script>
 </body>
 </html>
